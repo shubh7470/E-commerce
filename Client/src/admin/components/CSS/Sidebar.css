@@ -1,0 +1,25 @@
+.sidebar{
+  width:200px;
+  height:100vh;
+  background-color: #222;
+  color:#fff;
+  padding: 20px;
+  position: fixed;
+  top:70;
+  left:0;
+}
+.sidebar ul li{
+  text-decoration: none;
+  
+}
+
+
+.nav{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  color:#EEE;
+  font-size: 20px;
+}
