@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = 'http://localhost:8000';
+const URL = process.env.REACT_APP_API_URL;
 
 // Student data add karne ke liye
 export const addRegistration = async (data) => {
@@ -37,7 +37,7 @@ export const LogUsers = async()=>{
 
 export const getSingleProduct = async (id) => {
   try {
-    return await axios.get(`http://localhost:8000/product/${id}`);
+    return await axios.get(`${URL}/product/${id}`);
   } catch (error) {
     console.log("Error while fetching single product", error);
   }
