@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = process.env.REACT_APP_API_URL;
+const URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 // Student data add karne ke liye
 export const addRegistration = async (data) => {
@@ -45,7 +45,7 @@ export const getSingleProduct = async (id) => {
 
 export const updateProduct = async (id,data) =>{
     try{
-        return await axios.get(`${URL}/product/${id}`, data);
+        return await axios.put(`${URL}/product/${id}`, data);
     } catch(error){
         console.log("Error while Update Product",error);
     }
