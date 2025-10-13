@@ -12,7 +12,7 @@ dotenv.config()
 // CORS configuration
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://your-client-domain.vercel.app', 'https://your-client-domain.netlify.app'] 
+        ? ['https://shubhmart.vercel.app', 'https://shubhmart.netlify.app'] 
         : ['http://localhost:3000', 'http://localhost:5173'],
     credentials: true
 }
