@@ -10,24 +10,11 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        fromDatabase:
-          name: shubhkart-db
-          property: connectionString
+        value: mongodb+srv://username:password@cluster.mongodb.net/shubhkart?retryWrites=true&w=majority
       - key: PORT
         value: 10000
       - key: JWT_SECRET
-        generateValue: true
-
-  - type: web
-    name: shubhkart-client
-    env: static
-    plan: free
-    rootDir: ./Client
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    envVars:
-      - key: REACT_APP_API_URL
-        value: https://your-server-url.onrender.com
+        value: your-jwt-secret-here
 
 databases:
   - name: shubhkart-db

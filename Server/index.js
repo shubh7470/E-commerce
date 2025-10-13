@@ -24,6 +24,6 @@ app.use('/',Routes)
 app.use('/uploads',express.static('uploads'))
 app.use('/cart', cartRoutes);
 app.use('/payment', paymentRoutes);
-const PORT  = process.env.PORT
+const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => console.log(`Server Running on Port Number ${PORT}`))
