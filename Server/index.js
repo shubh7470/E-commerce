@@ -8,7 +8,15 @@ const dotenv  = require('dotenv')
 const cartRoutes = require('./router/route.js');
 const paymentRoutes = require('./router/route.js');
 dotenv.config()
-app.use(cors())
+
+// CORS configuration
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production' 
+        ? ['https://your-client-domain.vercel.app', 'https://your-client-domain.netlify.app'] 
+        : ['http://localhost:3000', 'http://localhost:5173'],
+    credentials: true
+}
+app.use(cors(corsOptions))
 Connection()
 app.use(bodyParser.json({extended : true}))
 app.use(bodyParser.urlencoded({ extended : true }))
