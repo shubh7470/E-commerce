@@ -57,7 +57,7 @@ const Manage =()=>{
                                             <td>{item.category}</td>
                                             <td>{item.aprice}</td>
                                             <td>{item.dprice}</td>
-                                            <td><img src={`http://localhost:8000/uploads/${item.frontimage}`} alt="..." className="img-thumbnail" height={'50px'} width={'50px'}></img></td>
+                                            <td><img src={`${import.meta.env.VITE_API_URL}/uploads/${item.frontimage}`} alt="..." className="img-thumbnail" height={'50px'} width={'50px'}></img></td>
                                             <td>{item.description?.split('\n').map((line, index) => (
                                                 <p key={index} className="mb-1">{line}</p>
                                                  ))}</td>

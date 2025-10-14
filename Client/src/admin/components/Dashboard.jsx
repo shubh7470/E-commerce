@@ -14,7 +14,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
   const fetchStats = async () => {
-    const res = await axios.get('http://localhost:8000/order/stats');
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/order/stats`);
     setStats(res.data);
   };
   fetchStats();
@@ -22,7 +22,7 @@ const AdminDashboard = () => {
 const [revenue, setRevenue] = useState(0);
  useEffect(() => {
     const fetchRevenue = async () => {
-      const res = await axios.get('http://localhost:8000/order/revenue');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/order/revenue`);
       setRevenue(res.data.totalRevenue || 0); 
     };
     fetchRevenue();
