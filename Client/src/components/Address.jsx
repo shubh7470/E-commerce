@@ -46,7 +46,7 @@ const Address = () => {
   useEffect(() => {
   const fetchAddress = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/address/${mobile}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/address/${mobile}`);
       if (res.data) {
         setExistingAddress(res.data);
         setFormData({
@@ -90,7 +90,7 @@ const Address = () => {
       }
     };
     try {
-      const res = await axios.post('http://localhost:8000/address', fullData);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/address`, fullData);
       alert('Order placed and address saved successfully!');
       console.log(res.data);
     } catch (err) {

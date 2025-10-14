@@ -67,7 +67,7 @@ const ProductDetail = () => {
           <div className="col-md-6">
             <div className="d-flex flex-column align-items-start">
               <img
-                src={`http://localhost:8000/uploads/${selectedImage}`}
+                src={`${import.meta.env.VITE_API_URL}/uploads/${selectedImage}`}
                 alt="product"
                 className="img-fluid mb-3"
                 style={{
@@ -81,7 +81,7 @@ const ProductDetail = () => {
                 {[product.frontimage, product.image1, product.image2].map((img, idx) => (
                   <img
                     key={idx}
-                    src={`http://localhost:8000/uploads/${img}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${img}`}
                     alt={`thumbnail-${idx}`}
                     width="60"
                     height="60"

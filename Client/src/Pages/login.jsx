@@ -18,7 +18,7 @@ const LoginPage = () => {
     e.preventDefault();
     console.log("Login submit clicked");
     try {
-      const { data } = await axios.post('http://localhost:8000/userlogin', { 
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/userlogin`, { 
         Mobile: mobile,
         password: password,
       });
@@ -36,7 +36,7 @@ const LoginPage = () => {
       
       if (fromPath === '/cart' && product) {
         console.log(" Inside cart add condition", product);
-         await axios.post('http://localhost:8000/cart/add', {
+         await axios.post(`${import.meta.env.VITE_API_URL}/cart/add`, {
            mobile: user.mobile,
            name: user.name,
            product: {

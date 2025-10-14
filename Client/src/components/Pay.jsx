@@ -24,7 +24,7 @@ const Payment = () => {
   // ✅ Success Handler
   const handlePaymentSuccess = async (response) => {
     try {
-      await axios.post('http://localhost:8000/order', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/order`, {
         mobile,
         amount: total,
         method: 'Online',
@@ -45,7 +45,7 @@ const Payment = () => {
   // ✅ Razorpay Payment
   const handleRazorpay = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/payment/order', { amount: total });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/payment/order`, { amount: total });
       const { id, amount, currency } = res.data;
 
       const options = {
@@ -79,7 +79,7 @@ const Payment = () => {
   // ✅ Cash On Delivery
   const handleCOD = async () => {
     try {
-      await axios.post('http://localhost:8000/order', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/order`, {
         mobile,
         amount: total,
         method: 'Cash on Delivery',
@@ -87,7 +87,7 @@ const Payment = () => {
         orderId: 'COD'
       });
 
-      await axios.delete(`http://localhost:8000/cart/clear/${mobile}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/cart/clear/${mobile}`);
       alert('🛒 Order Placed with Cash on Delivery!');
       navigate('/');
     } catch (err) {

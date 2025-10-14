@@ -17,7 +17,7 @@ const Cart = () => {
     const fetchCart = async () => {
       if (!user) return navigate('/login');
       try {
-        const res = await axios.get(`http://localhost:8000/cart/${user.mobile}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/cart/${user.mobile}`);
         setCartItems(res.data.items);
         setLoading(false);
         localStorage.removeItem('selectedProduct');
@@ -39,7 +39,7 @@ const Cart = () => {
     });
     setCartItems(updatedItems);
     try {
-      await axios.put(`http://localhost:8000/cart/update/${user.mobile}`, {
+      await axios.put(`${import.meta.env.VITE_API_URL}/cart/update/${user.mobile}`, {
         productId,
         delta
       });
@@ -54,7 +54,7 @@ const Cart = () => {
     try {
       console.log("Trying to delete:", user.mobile, productId);
 
-      await axios.delete(`http://localhost:8000/cart/delete/${user.mobile}/${productId}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/cart/delete/${user.mobile}/${productId}`);
     } catch (err) {
       console.error('Failed to remove item:', err);
     }
@@ -95,7 +95,7 @@ const Cart = () => {
               <div className="row g-0 align-items-center">
                 <div className="col-md-4 text-center">
                   <img
-                    src={`http://localhost:8000/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${item.image}`}
                     alt={item.name}
                     className="img-fluid p-2"
                     style={{ maxHeight: '150px', objectFit: 'contain' }}

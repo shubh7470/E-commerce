@@ -24,7 +24,7 @@ const Product = () => {
     
     <div className="img mb-2" style={{ width: "100%", height: "300px", overflow: "hidden" }}>
       <img
-        src={`http://localhost:8000/uploads/${item.frontimage}`}
+        src={`${import.meta.env.VITE_API_URL}/uploads/${item.frontimage}`}
         alt={item.frontimage}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
